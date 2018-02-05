@@ -54,24 +54,37 @@ public class PayActivity extends BaseActivity {
             @Override
             public void run() {
                 try {
-                    Log.v("packageName : ", packageName);
-                    Log.v("version_code : ", versionCode + "");
-                    Log.v("email : ", email);
-                    Log.v("amount : ", price);
-                    Log.v("extra_data : ", description);
-                    Log.v("mobile : ", phone);
-                    Log.v("token : ", token);
                     JSONObject form1 = null;
                     try {
-                        form1 = new JSONObject()
-                                .put("package_name", packageName)
-                                .put("version_code", versionCode)
-                                .put("email", email)
-                                .put("extra_data", description)
-                                .put("amount", price)
-                                .put("mobile", phone)
-                                .put("type", "1")
-                                .put("token", token);
+                        if(email == null) {
+                            form1 = new JSONObject()
+                                    .put("package_name", packageName)
+                                    .put("version_code", String.valueOf(versionCode))
+                                    .put("extra_data", description)
+                                    .put("amount", price)
+                                    .put("mobile", phone)
+                                    .put("type", "1")
+                                    .put("token", token);
+                        }else if (phone == null){
+                            form1 = new JSONObject()
+                                    .put("package_name", packageName)
+                                    .put("version_code", String.valueOf(versionCode))
+                                    .put("extra_data", description)
+                                    .put("amount", price)
+                                    .put("email", email)
+                                    .put("type", "1")
+                                    .put("token", token);
+                        }else{
+                            form1 = new JSONObject()
+                                    .put("package_name", packageName)
+                                    .put("version_code", String.valueOf(versionCode))
+                                    .put("extra_data", description)
+                                    .put("amount", price)
+                                    .put("mobile", phone)
+                                    .put("email", email)
+                                    .put("type", "1")
+                                    .put("token", token);
+                        }
                     } catch (Exception e) {}
                     try {
                         Request request = Bridge
@@ -81,7 +94,6 @@ public class PayActivity extends BaseActivity {
                                 .body(form1)
                                 .request();
                         response = request.response();
-
                         if (response.isSuccess()) {
                             JSONObject object = null;
                             object = new JSONObject(String.valueOf(response.asJsonObject()));
