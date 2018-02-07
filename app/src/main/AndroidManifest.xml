@@ -18,7 +18,7 @@
 
         <meta-data
             android:name="daroonApp"
-            android:value="eyJpdiI6IkRnVElXM3Z2NlwvWUhmbmg0K3BJTmNRPT0iLCJ2YWx1ZSI6Im5kdXY0aVNnaXduYVV6ZSt2RjFGOWlSdXl2eElNOUhsWitteDFIV1NkTEQ0MHNDdWxjdzJmRTlHbE1GaUJyNm5Ga0M3MnJYZU9DYzRDT2R2eWZYTkxrTThMK0luYndhcHgrbVlYWFozOTlYUzl4QWNRQ20xOWxlc2VFck9DV2plIiwibWFjIjoiMmM5MTYxODliNTA2ZmRhMzVkMmQyN2JhZTA5ZjM2NmIxOWEyMWQ4MTM4ZjViM2Y2M2U0ZTNmNGMwNDgzMTk1MSJ9" />
+            android:value="Your_Token"/>
         <activity android:name=".ResultActivity"></activity>
     </application>
 

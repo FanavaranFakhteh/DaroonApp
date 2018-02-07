@@ -18,7 +18,7 @@ public class ResultActivity extends AppCompatActivity {
         JSONObject lastTransaction = DaroonApp.getLastTransaction();
 
         // get all of user's transaction
-        JSONArray allTransactions = DaroonApp.getAllTransactions("number","email");
+        JSONArray allTransactions = DaroonApp.getAllTransactions("user's number","user's email");
 
     }
 }
