@@ -22,7 +22,7 @@ public class DaroonApp {
     public static PackageInfo pInfo;
     public static Context mcontext;
 
-    public static void pays(Class mclass, String price, String description, String phone, String email){
+    public static void pay(Class mclass, String price, String description, String phone, String email){
         Intent intent = new Intent(mcontext, PayActivity.class);
         intent.putExtra("activity",mclass.toString());
         intent.putExtra("price",price);

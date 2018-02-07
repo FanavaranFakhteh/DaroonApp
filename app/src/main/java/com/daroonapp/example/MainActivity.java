@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btngo: // payment
-                DaroonApp.pays(ResultActivity.class, "your_Price", "your_Description", "users_phoneNumber", "users_Email");
+                DaroonApp.pay(ResultActivity.class, "your_Price", "your_Description", "users_phoneNumber", "users_Email");
                 break;
         }
     }
