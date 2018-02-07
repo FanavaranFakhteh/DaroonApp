@@ -1,5 +1,7 @@
 # DaroonApp
 
+**Introduction**
+
 **DaroonApp** is an In App Purchase library
 for Developers who wanna have payment in there Android Applications.
 it's easy to use and works for all Applications
@@ -8,6 +10,7 @@ it's easy to use and works for all Applications
 for more information please see the [website](http://daroonapp.com)
 
 **Download**
+----
 
 	allprojects { 
 			repositories {
@@ -20,7 +23,8 @@ for more information please see the [website](http://daroonapp.com)
 			compile 'com.github.FanavaranFakhteh:DaroonApp:1.0.3'
 		}
     
-**Usage**    
+**Usage**
+----
     
 intialize DaroonApp 
 
