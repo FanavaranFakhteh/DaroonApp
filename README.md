@@ -6,16 +6,16 @@ it's easy to safe and works for all Applications
 
 **Download**
 
-allprojects { 
-		repositories {
-			maven { url 'https://jitpack.io' }
+	allprojects { 
+			repositories {
+				maven { url 'https://jitpack.io' }
+			}
 		}
-	}
 
 
-dependencies {
-	        compile 'com.github.FanavaranFakhteh:DaroonApp:1.0.3'
-	}
+	dependencies {
+			compile 'com.github.FanavaranFakhteh:DaroonApp:1.0.3'
+		}
     
 **Usage**    
     
