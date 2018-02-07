@@ -1,6 +1,6 @@
 # DaroonApp
 
-**DaroonApp** is an in app purchase library
+**DaroonApp** is an In App Purchase library
 for Developers who wanna have payment in there Android Applications.
 it's easy to use and works for all Applications
 
