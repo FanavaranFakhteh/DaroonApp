@@ -1,5 +1,8 @@
 # DaroonApp
 
+DaroonApp is a in app purchase library
+
+
 allprojects { 
 		repositories {
 			maven { url 'https://jitpack.io' }
