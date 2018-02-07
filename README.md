@@ -32,9 +32,8 @@ payment
     
 * write the price to Rial
 
-* you sould fill user's-email or user's-number or both of them
-
-* if you don't have one of them, send null
+* you sould fill user's-email or user's-number or both of them,
+if you don't have one of them, send null
 
 Example : 
     
@@ -48,8 +47,8 @@ get All Transactions:
     
 	DaroonApp.getAllTransactions("users email" , "user's number");
            
-* you sould fill user's-email or user's-number or both of them
-* if you don't have one of them, send null
+* you sould fill user's-email or user's-number or both of them,
+if you don't have one of them, send null
     
 Example :
     
