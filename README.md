@@ -33,7 +33,7 @@ intialize DaroonApp
 	
 payment
 
-	DaroonApp.pay(ResultActivity.class,"price","description","users-email","users-number");
+	DaroonApp.pay(ResultActivity.class,"price","description","users-number","users-email");
     
 * write the price to Rial
 
@@ -42,7 +42,7 @@ if you don't have one of them, send null
 
 Example : 
     
-	DaroonApp.pay(ResultActivity.class,"20000","Gold Access","info.DaroonApp@gmail.com",null);
+	DaroonApp.pay(ResultActivity.class,"20000","Gold Access",null,"info.DaroonApp@gmail.com");
         
 get Last Transaction:
     
@@ -50,11 +50,11 @@ get Last Transaction:
 
 get All Transactions:
     
-	DaroonApp.getAllTransactions("users email" , "user's number");
+	DaroonApp.getAllTransactions("users number" , "user's email");
            
 * you sould fill user's-email or user's-number or both of them,
 if you don't have one of them, send null
     
 Example :
     
-	DaroonApp.getAllTransactions("info.DaroonApp@gmail.com" , null);
+	DaroonApp.getAllTransactions("09120000000" , null);
