@@ -21,7 +21,7 @@ for more information please see the [website](http://daroonapp.com)
 
 
 	dependencies {
-			compile 'com.github.FanavaranFakhteh:DaroonApp:1.0.3'
+			compile 'com.github.FanavaranFakhteh:DaroonApp:1.0.4'
 		}
     
 **Usage**
