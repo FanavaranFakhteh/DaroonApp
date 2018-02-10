@@ -44,11 +44,11 @@ if you don't have one of them, send null
     
 	DaroonApp.pay(ResultActivity.class,"20000","Gold Access",null,"info.DaroonApp@gmail.com");
         
-<h4>get Last Transaction:</h4>
+<h4>get Last Transaction</h4>
     
 	DaroonApp.getLastTransaction();
 
-<h4>get All Transactions:</h4>
+<h4>get All Transactions</h4>
     
 	DaroonApp.getAllTransactions("users number" , "user's email");
            
