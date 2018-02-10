@@ -31,7 +31,7 @@ intialize DaroonApp
 
 	DaroonApp.init(context);
 	
-payment
+<h4>payment</h4>
 
 	DaroonApp.pay(ResultActivity.class,"price","description","users-number","users-email");
     
@@ -40,21 +40,21 @@ payment
 * you sould fill user's-email or user's-number or both of them,
 if you don't have one of them, send null
 
-example : 
+<h5>example :</h5> 
     
 	DaroonApp.pay(ResultActivity.class,"20000","Gold Access",null,"info.DaroonApp@gmail.com");
         
-get Last Transaction:
+<h4>get Last Transaction:</h4>
     
 	DaroonApp.getLastTransaction();
 
-get All Transactions:
+<h4>get All Transactions:</h4>
     
 	DaroonApp.getAllTransactions("users number" , "user's email");
            
 * you sould fill user's-email or user's-number or both of them,
 if you don't have one of them, send null
     
-example :
+<h5>example :</h5>
     
 	DaroonApp.getAllTransactions("09120000000" , null);
