@@ -6,6 +6,8 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
+
 import com.afollestad.bridge.Bridge;
 import com.afollestad.bridge.BridgeException;
 import com.afollestad.bridge.Request;
@@ -63,7 +65,9 @@ public class DaroonApp {
                             lastJson = null;
                         }
                     } catch (BridgeException e) {}
-                } catch (Exception e) {}
+                } catch (Exception e) {
+                    Log.e("getLastTransaction", e+"");
+                }
             }
         });
         thread.start();
@@ -120,7 +124,9 @@ public class DaroonApp {
                         }
 
                     } catch (BridgeException e) {}
-                } catch (Exception e) {}
+                } catch (Exception e) {
+                    Log.e("getAllTransactions", e+"");
+                }
             }
         });
         thread.start();
@@ -146,6 +152,8 @@ public class DaroonApp {
                     versionCode = pInfo.versionCode;
                 } catch (PackageManager.NameNotFoundException e) {}
             }else{}
-        } catch (PackageManager.NameNotFoundException e) {}
+        } catch (PackageManager.NameNotFoundException e) {
+            Log.e("init", e+"");
+        }
     }
 }
