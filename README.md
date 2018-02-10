@@ -40,7 +40,7 @@ payment
 * you sould fill user's-email or user's-number or both of them,
 if you don't have one of them, send null
 
-Example : 
+example : 
     
 	DaroonApp.pay(ResultActivity.class,"20000","Gold Access",null,"info.DaroonApp@gmail.com");
         
@@ -55,6 +55,6 @@ get All Transactions:
 * you sould fill user's-email or user's-number or both of them,
 if you don't have one of them, send null
     
-Example :
+example :
     
 	DaroonApp.getAllTransactions("09120000000" , null);
