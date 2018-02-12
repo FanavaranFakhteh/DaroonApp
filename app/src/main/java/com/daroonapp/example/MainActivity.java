@@ -31,6 +31,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // verify account
         DaroonApp.init(getApplicationContext());
 
+        //customize activity
+        DaroonApp.statusBarColor(R.color.colorPrimary);
+        DaroonApp.actionBarColor(R.color.colorPrimaryDark);
+        DaroonApp.progressBarColor(R.color.colorAccent);
+
         btngo.setOnClickListener(this);
     }
 

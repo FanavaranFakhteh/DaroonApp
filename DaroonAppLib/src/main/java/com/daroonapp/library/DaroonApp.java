@@ -156,4 +156,16 @@ public class DaroonApp {
             Log.e("init", e+"");
         }
     }
+
+    public static void statusBarColor(Integer integer){
+        Global.statusBarColor = integer;
+    }
+
+    public static void actionBarColor(Integer integer){
+        Global.actionBarColor = integer;
+    }
+
+    public static void progressBarColor(Integer integer){
+        Global.progressBarColor = integer;
+    }
 }

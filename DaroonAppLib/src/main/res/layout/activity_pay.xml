@@ -6,6 +6,7 @@
     android:background="#ffffff">
 
     <LinearLayout
+        android:id="@+id/linurl"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="#164899"

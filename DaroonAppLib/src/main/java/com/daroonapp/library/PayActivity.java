@@ -3,14 +3,19 @@ package com.daroonapp.library;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.PorterDuff;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 import com.afollestad.bridge.Bridge;
@@ -28,7 +33,9 @@ public class PayActivity extends BaseActivity {
     private Response response;
     private WebView mWebview;
     private EditText edturl;
-    private Activity activity;
+    public static Activity activity;
+    public static LinearLayout linUrl;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +45,7 @@ public class PayActivity extends BaseActivity {
         setContentView(R.layout.activity_pay);
 
         viewBinding();
+        setCustomChanges();
         getExtras(activity);
         getResponse();
     }
@@ -46,6 +54,7 @@ public class PayActivity extends BaseActivity {
         mWebview = (WebView) findViewById(R.id.webview);
         mprogressBar = (ProgressBar) findViewById(R.id.progressbar);
         edturl = (EditText) findViewById(R.id.edturl);
+        linUrl = (LinearLayout) findViewById(R.id.linurl);
         activity = PayActivity.this;
     }
 
@@ -205,5 +214,39 @@ public class PayActivity extends BaseActivity {
             Intent intent = new Intent(this, className);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
+    }
+
+    public void setCustomChanges(){
+        statusBarColor(Global.statusBarColor);
+        actionBarColor(Global.actionBarColor);
+        progressBarColor(Global.progressBarColor);
+    }
+
+    public static void statusBarColor(Integer integer){
+        if(Global.statusBarColor == 0){}
+        else {
+            Window window = PayActivity.activity.getWindow();
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                window.setStatusBarColor(ContextCompat.getColor(PayActivity.activity, integer));
+            } else {
+            }
+        }
+    }
+
+    public static void actionBarColor(Integer integer){
+        if(Global.actionBarColor == 0){}
+        else {
+            PayActivity.linUrl.setBackgroundColor(PayActivity.activity.getResources().getColor(integer));
+        }
+    }
+
+    public static void progressBarColor(Integer integer){
+        if(Global.progressBarColor == 0) {}
+        else{
+            PayActivity.mprogressBar.getIndeterminateDrawable().setColorFilter(PayActivity.activity.getResources()
+                    .getColor(integer), PorterDuff.Mode.SRC_IN);
+        }
     }
 }
