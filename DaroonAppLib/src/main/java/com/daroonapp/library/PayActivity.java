@@ -217,12 +217,12 @@ public class PayActivity extends BaseActivity {
     }
 
     public void setCustomChanges(){
-        statusBarColor(Global.statusBarColor);
-        actionBarColor(Global.actionBarColor);
-        progressBarColor(Global.progressBarColor);
+        setStatusBarColor(Global.statusBarColor);
+        setActionBarColor(Global.actionBarColor);
+        setProgressBarColor(Global.progressBarColor);
     }
 
-    public static void statusBarColor(Integer integer){
+    public static void setStatusBarColor(Integer integer){
         if(Global.statusBarColor == 0){}
         else {
             Window window = PayActivity.activity.getWindow();
@@ -235,14 +235,14 @@ public class PayActivity extends BaseActivity {
         }
     }
 
-    public static void actionBarColor(Integer integer){
+    public static void setActionBarColor(Integer integer){
         if(Global.actionBarColor == 0){}
         else {
             PayActivity.linUrl.setBackgroundColor(PayActivity.activity.getResources().getColor(integer));
         }
     }
 
-    public static void progressBarColor(Integer integer){
+    public static void setProgressBarColor(Integer integer){
         if(Global.progressBarColor == 0) {}
         else{
             PayActivity.mprogressBar.getIndeterminateDrawable().setColorFilter(PayActivity.activity.getResources()

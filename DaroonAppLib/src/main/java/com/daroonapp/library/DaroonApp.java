@@ -157,15 +157,15 @@ public class DaroonApp {
         }
     }
 
-    public static void statusBarColor(Integer integer){
+    public static void setStatusBarColor(Integer integer){
         Global.statusBarColor = integer;
     }
 
-    public static void actionBarColor(Integer integer){
+    public static void setActionBarColor(Integer integer){
         Global.actionBarColor = integer;
     }
 
-    public static void progressBarColor(Integer integer){
+    public static void setProgressBarColor(Integer integer){
         Global.progressBarColor = integer;
     }
 }
