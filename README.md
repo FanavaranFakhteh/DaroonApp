@@ -72,7 +72,7 @@ set color to your actionBar
 
 set color to your progressBar
 
-	DaroonApp.progressBarColor(R.color.colorAccent);
+	DaroonApp.progressBarColor(your_color);
 	
 <h5>example :</h5>
 
