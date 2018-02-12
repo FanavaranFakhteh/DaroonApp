@@ -58,3 +58,24 @@ if you don't have one of them, send null
 <h5>example :</h5>
     
 	DaroonApp.getAllTransactions("09120000000" , null);
+	
+<h4>cusomize Pay Activity</h4>
+also you can cusomize your pay activity
+
+set color to your statusBar
+
+	DaroonApp.DaroonApp.statusBarColor(your_color);
+	
+set color to your actionBar
+
+	DaroonApp.actionBarColor(your_color);
+
+set color to your progressBar
+
+	DaroonApp.progressBarColor(your_color);
+	
+<h5>example :</h5>
+
+	DaroonApp.statusBarColor(R.color.colorAccent);
+	DaroonApp.actionBarColor(R.color.colorAccent);
+	DaroonApp.progressBarColor(R.color.colorAccent);
