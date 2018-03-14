@@ -64,18 +64,18 @@ also you can cusomize your pay activity
 
 set color to your statusBar
 
-	DaroonApp.DaroonApp.statusBarColor(your_color);
+	DaroonApp.DaroonApp.setStatusBarColor(your_color);
 	
 set color to your actionBar
 
-	DaroonApp.actionBarColor(your_color);
+	DaroonApp.setActionBarColor(your_color);
 
 set color to your progressBar
 
-	DaroonApp.progressBarColor(your_color);
+	DaroonApp.setProgressBarColor(your_color);
 	
 <h5>example :</h5>
 
-	DaroonApp.statusBarColor(R.color.colorAccent);
-	DaroonApp.actionBarColor(R.color.colorAccent);
-	DaroonApp.progressBarColor(R.color.colorAccent);
+	DaroonApp.setStatusBarColor(R.color.colorAccent);
+	DaroonApp.setActionBarColor(R.color.colorAccent);
+	DaroonApp.setProgressBarColor(R.color.colorAccent);
