@@ -10,8 +10,10 @@ it's easy to use and works for all Applications
 
 for more information please see the [website](http://daroonapp.com)
 
+
 **Download**
 ----
+[![](https://jitpack.io/v/FanavaranFakhteh/DaroonApp.svg)](https://jitpack.io/#FanavaranFakhteh/DaroonApp)
 
 	allprojects { 
 			repositories {
