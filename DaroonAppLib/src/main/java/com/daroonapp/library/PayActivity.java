@@ -17,6 +17,7 @@ import android.webkit.WebViewClient;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.afollestad.bridge.Bridge;
 import com.afollestad.bridge.BridgeException;
@@ -32,7 +33,7 @@ public class PayActivity extends BaseActivity {
     private boolean doubleBackToExitPressedOnce = false;
     private Response response;
     private WebView mWebview;
-    private EditText edturl;
+    private TextView txtUrl;
     public static Activity activity;
     public static LinearLayout linUrl;
 
@@ -53,7 +54,7 @@ public class PayActivity extends BaseActivity {
     public void viewBinding() {
         mWebview = (WebView) findViewById(R.id.webview);
         mprogressBar = (ProgressBar) findViewById(R.id.progressbar);
-        edturl = (EditText) findViewById(R.id.edturl);
+        txtUrl = (TextView) findViewById(R.id.txturl);
         linUrl = (LinearLayout) findViewById(R.id.linurl);
         activity = PayActivity.this;
     }
@@ -122,7 +123,7 @@ public class PayActivity extends BaseActivity {
     public void setUi() {
         activity.runOnUiThread(new Runnable() {
             public void run() {
-                edturl.setText(url);
+                txtUrl.setText(url);
                 mWebview.setWebViewClient(new WebViewClient());
                 mWebview.getSettings().setJavaScriptEnabled(true);
 
@@ -130,18 +131,16 @@ public class PayActivity extends BaseActivity {
                 mWebview.setWebViewClient(new WebViewClient() {
                     @Override
                     public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                        edturl.setText(url);
+                        txtUrl.setText(url);
                         if (url.contains("https://daroonapp.com/user/paid/")) {
                             endTransaction();
                         }
                     }
-
                     public void onPageFinished(WebView view, String url) {
                         mprogressBar.setVisibility(View.GONE);
                         mWebview.setVisibility(View.VISIBLE);
                     }
                 });
-                edturl.setEnabled(false);
             }
         });
     }
@@ -217,36 +216,27 @@ public class PayActivity extends BaseActivity {
     }
 
     public void setCustomChanges(){
-        setStatusBarColor(Global.statusBarColor);
-        setActionBarColor(Global.actionBarColor);
-        setProgressBarColor(Global.progressBarColor);
+        setStatusBarColor();
+        setProgressBarColor();
     }
 
-    public static void setStatusBarColor(Integer integer){
-        if(Global.statusBarColor == 0){}
-        else {
+    public void setStatusBarColor(){
             Window window = PayActivity.activity.getWindow();
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                window.setStatusBarColor(ContextCompat.getColor(PayActivity.activity, integer));
+                window.setStatusBarColor(ContextCompat.getColor(PayActivity.activity, R.color.colorPrimary));
             } else {
             }
-        }
     }
-
-    public static void setActionBarColor(Integer integer){
+    public void setActionBarColor(Integer integer){
         if(Global.actionBarColor == 0){}
         else {
-            PayActivity.linUrl.setBackgroundColor(PayActivity.activity.getResources().getColor(integer));
+            PayActivity.linUrl.setBackgroundColor(PayActivity.activity.getResources().getColor(R.color.colorPrimary));
         }
     }
-
-    public static void setProgressBarColor(Integer integer){
-        if(Global.progressBarColor == 0) {}
-        else{
+    public void setProgressBarColor(){
             PayActivity.mprogressBar.getIndeterminateDrawable().setColorFilter(PayActivity.activity.getResources()
-                    .getColor(integer), PorterDuff.Mode.SRC_IN);
-        }
+                    .getColor(R.color.colorAccent), PorterDuff.Mode.SRC_IN);
     }
 }

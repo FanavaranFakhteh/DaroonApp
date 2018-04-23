@@ -1,5 +1,8 @@
 package com.daroonapp.library;
 
+import android.app.Activity;
+import android.app.Application;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -7,35 +10,72 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.afollestad.bridge.Bridge;
 import com.afollestad.bridge.BridgeException;
 import com.afollestad.bridge.Request;
 import com.afollestad.bridge.Response;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class DaroonApp {
+public class DaroonApp extends Application {
 
     public static JSONObject lastJson;
     public static JSONArray allJsons;
     public static String token;
     public static int versionCode;
     public static PackageInfo pInfo;
-    public static Context mcontext;
+    public static Activity mActivity;
 
-    public static void pay(Class mclass, String price, String description, String phone, String email){
-        Intent intent = new Intent(mcontext, PayActivity.class);
-        intent.putExtra("activity",mclass.toString());
-        intent.putExtra("price",price);
-        intent.putExtra("description",description);
-        intent.putExtra("token",token);
-        intent.putExtra("phone",phone);
-        intent.putExtra("email",email);
-        intent.putExtra("packageName",mcontext.getApplicationInfo().packageName.toString());
-        intent.putExtra("versionCode",String.valueOf(versionCode));
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        mcontext.startActivity(intent);
+
+    public static void pay(final Class mclass, final String price, final String description, final String phone, final String email) {
+
+        Dialog paymentBottomSheetDialog;
+        paymentBottomSheetDialog = new Dialog(mActivity, com.daroonapp.library.R.style.MaterialDialogSheet);
+        paymentBottomSheetDialog.setContentView(com.daroonapp.library.R.layout.payment_popup); // your custom view.
+        paymentBottomSheetDialog.setCancelable(true);
+        paymentBottomSheetDialog.getWindow().setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        paymentBottomSheetDialog.getWindow().setGravity(Gravity.BOTTOM);
+        paymentBottomSheetDialog.show();
+
+        TextView txtPrice = (TextView) paymentBottomSheetDialog.findViewById(R.id.txtprice);
+        TextView txtUser = (TextView) paymentBottomSheetDialog.findViewById(R.id.txtuser);
+        LinearLayout linPayment = (LinearLayout) paymentBottomSheetDialog.findViewById(R.id.linpayment);
+
+        if(email == null){
+            txtUser.setText(phone);
+        }else if(phone == null){
+            txtUser.setText(email);
+        }else{
+            txtUser.setText(email);
+        }
+
+        txtPrice.setText(price);
+        linPayment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(mActivity, PayActivity.class);
+                intent.putExtra("activity", mclass.toString());
+                intent.putExtra("price", price);
+                intent.putExtra("description", description);
+                intent.putExtra("token", token);
+                intent.putExtra("phone", phone);
+                intent.putExtra("email", email);
+                intent.putExtra("packageName", mActivity.getApplicationInfo().packageName.toString());
+                intent.putExtra("versionCode", String.valueOf(versionCode));
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                mActivity.startActivity(intent);
+
+            }
+        });
+
     }
 
     public static JSONObject getLastTransaction() {
@@ -46,10 +86,11 @@ public class DaroonApp {
                     JSONObject form1 = null;
                     try {
                         form1 = new JSONObject()
-                                .put("package_name", mcontext.getApplicationInfo().packageName)
+                                .put("package_name", mActivity.getApplicationInfo().packageName)
                                 .put("version_code", versionCode)
                                 .put("token", token);
-                    } catch (Exception e) {}
+                    } catch (Exception e) {
+                    }
 
                     try {
                         Request request = Bridge
@@ -64,9 +105,10 @@ public class DaroonApp {
                         } else {
                             lastJson = null;
                         }
-                    } catch (BridgeException e) {}
+                    } catch (BridgeException e) {
+                    }
                 } catch (Exception e) {
-                    Log.e("getLastTransaction", e+"");
+                    Log.e("getLastTransaction", e + "");
                 }
             }
         });
@@ -86,27 +128,33 @@ public class DaroonApp {
                 try {
                     JSONObject form1 = null;
                     if (email == null) {
-                        try {form1 = new JSONObject()
-                                    .put("package_name", mcontext.getApplicationInfo().packageName)
+                        try {
+                            form1 = new JSONObject()
+                                    .put("package_name", mActivity.getApplicationInfo().packageName)
                                     .put("version_code", versionCode)
                                     .put("mobile", number)
                                     .put("token", token);
-                        } catch (Exception e) {}
-                    }else if(number == null){
-                        try {form1 = new JSONObject()
-                                .put("package_name", mcontext.getApplicationInfo().packageName)
-                                .put("version_code", versionCode)
-                                .put("email", email)
-                                .put("token", token);
-                        } catch (Exception e) {}
-                    }else{
-                        try {form1 = new JSONObject()
-                                .put("package_name", mcontext.getApplicationInfo().packageName)
-                                .put("version_code", versionCode)
-                                .put("email", email)
-                                .put("mobile", number)
-                                .put("token", token);
-                        } catch (Exception e) {}
+                        } catch (Exception e) {
+                        }
+                    } else if (number == null) {
+                        try {
+                            form1 = new JSONObject()
+                                    .put("package_name", mActivity.getApplicationInfo().packageName)
+                                    .put("version_code", versionCode)
+                                    .put("email", email)
+                                    .put("token", token);
+                        } catch (Exception e) {
+                        }
+                    } else {
+                        try {
+                            form1 = new JSONObject()
+                                    .put("package_name", mActivity.getApplicationInfo().packageName)
+                                    .put("version_code", versionCode)
+                                    .put("email", email)
+                                    .put("mobile", number)
+                                    .put("token", token);
+                        } catch (Exception e) {
+                        }
                     }
                     try {
                         Request request = Bridge
@@ -123,9 +171,10 @@ public class DaroonApp {
                             allJsons = null;
                         }
 
-                    } catch (BridgeException e) {}
+                    } catch (BridgeException e) {
+                    }
                 } catch (Exception e) {
-                    Log.e("getAllTransactions", e+"");
+                    Log.e("getAllTransactions", e + "");
                 }
             }
         });
@@ -140,32 +189,23 @@ public class DaroonApp {
 
     }
 
-    public static void init(Context context){
+    public static void init(Activity activity) {
         try {
-            mcontext = context;
-            ApplicationInfo ai = mcontext.getPackageManager().getApplicationInfo(mcontext.getPackageName(), PackageManager.GET_META_DATA);
+            mActivity = activity;
+
+            ApplicationInfo ai = mActivity.getPackageManager().getApplicationInfo(mActivity.getPackageName(), PackageManager.GET_META_DATA);
             Bundle bundle = ai.metaData;
             token = bundle.getString("daroonApp");
-            if (!token.toString().equalsIgnoreCase("")){
+            if (!token.toString().equalsIgnoreCase("")) {
                 try {
-                    pInfo = mcontext.getPackageManager().getPackageInfo(mcontext.getPackageName(), 0);
+                    pInfo = mActivity.getPackageManager().getPackageInfo(mActivity.getPackageName(), 0);
                     versionCode = pInfo.versionCode;
-                } catch (PackageManager.NameNotFoundException e) {}
-            }else{}
+                } catch (PackageManager.NameNotFoundException e) {
+                }
+            } else {
+            }
         } catch (PackageManager.NameNotFoundException e) {
-            Log.e("init", e+"");
+            Log.e("init", e + "");
         }
-    }
-
-    public static void setStatusBarColor(Integer integer){
-        Global.statusBarColor = integer;
-    }
-
-    public static void setActionBarColor(Integer integer){
-        Global.actionBarColor = integer;
-    }
-
-    public static void setProgressBarColor(Integer integer){
-        Global.progressBarColor = integer;
     }
 }

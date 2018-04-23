@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimary">#5c8ecb</color>
     <color name="colorPrimaryDark">#4f5056</color>
-    <color name="colorAccent">#0d1c64</color>
+    <color name="colorAccent">#5263cb</color>
     <color name="actionBarColor">#164899</color>
+    <color name="daroonapp_color">#5c8ecb</color>
 </resources>

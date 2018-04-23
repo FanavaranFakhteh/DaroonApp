@@ -1,4 +1,8 @@
 <resources>
-    <string name="app_name">My Library</string>
+    <string name="app_name">DaroonApp</string>
+    <string name="choose_payment">انتخاب روش پرداخت</string>
+    <string name="internet_payment">پرداخت اینترنتی</string>
+    <string name="all_cards">کلیه کارت های شتاب</string>
+    <string name="rial">ریال</string>
     <string name="server_client_id">191604391610-qm3ecn3tlu2mrs6utri4nntmn7l1v33p.apps.googleusercontent.com</string>
 </resources>

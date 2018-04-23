@@ -4,7 +4,7 @@ group 'com.github.FanavaranFakhteh'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion "27.0.2"
+    buildToolsVersion "27.0.3"
 
     defaultConfig {
         minSdkVersion 15
@@ -21,15 +21,21 @@ android {
 }
 
 dependencies {
+    def libVersion = '27.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.github.rubensousa:bottomsheetbuilder:1.6.1'
+    implementation "com.android.support:design:$libVersion"
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:27.0.2'
-    compile 'com.google.android.gms:play-services-auth:11.0.4'
+    compile "com.android.support:support-v4:$libVersion"
+    compile "com.android.support:appcompat-v7:$libVersion"
+    compile "com.android.support:support-compat:$libVersion"
+    compile 'com.google.android.gms:play-services-auth:15.0.0'
     compile 'com.mcxiaoke.volley:library-aar:1.0.0'
     compile 'com.loopj.android:android-async-http:1.4.9'
-    compile 'com.afollestad:bridge:5.1.2'
+  //  compile 'com.afollestad:bridge:5.1.2'
     compile('com.afollestad:bridge:5.1.2') {
         exclude group: 'org.json', module: 'json'
     }
+
 }
