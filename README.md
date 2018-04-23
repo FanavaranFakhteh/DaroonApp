@@ -29,7 +29,7 @@ for more information please see the [website](http://daroonapp.com)
     
 intialize DaroonApp 
 
-	DaroonApp.init(context);
+	DaroonApp.init(yourActivity.this);
 	
 <h4>payment</h4>
 
@@ -58,24 +58,4 @@ if you don't have one of them, send null
 <h5>example :</h5>
     
 	DaroonApp.getAllTransactions("09120000000" , null);
-	
-<h4>cusomize Pay Activity</h4>
-also you can cusomize your pay activity
 
-set color to your statusBar
-
-	DaroonApp.setStatusBarColor(your_color);
-	
-set color to your actionBar
-
-	DaroonApp.setActionBarColor(your_color);
-
-set color to your progressBar
-
-	DaroonApp.setProgressBarColor(your_color);
-	
-<h5>example :</h5>
-
-	DaroonApp.setStatusBarColor(R.color.colorAccent);
-	DaroonApp.setActionBarColor(R.color.colorAccent);
-	DaroonApp.setProgressBarColor(R.color.colorAccent);
