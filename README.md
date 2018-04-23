@@ -21,7 +21,7 @@ for more information please see the [website](http://daroonapp.com)
 
 
 	dependencies {
-			compile 'com.github.FanavaranFakhteh:DaroonApp:1.0.4'
+			compile 'com.github.FanavaranFakhteh:DaroonApp:1.0.5'
 		}
     
 **Usage**
@@ -64,7 +64,7 @@ also you can cusomize your pay activity
 
 set color to your statusBar
 
-	DaroonApp.DaroonApp.setStatusBarColor(your_color);
+	DaroonApp.setStatusBarColor(your_color);
 	
 set color to your actionBar
 
