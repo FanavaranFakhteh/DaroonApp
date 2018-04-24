@@ -10,6 +10,7 @@ it's easy to use and works for all Applications
 
 for more information please see the [website](http://daroonapp.com)
 
+also you can see [Tutorial](http://daroonapp.com)
 
 **Download**
 ----
@@ -33,8 +34,10 @@ intialize DaroonApp
 
 	DaroonApp.init(yourActivity.this);
 	
-add **meta-data** with your version's token to your AndroidManifest
-(you can get token from your [panel](http://daroonapp.com) or [Admin Application](http://daroonapp.com) after your app's version verify)
+add **meta-data** to your AndroidManifest with version's token
+(you can get token from [panel](http://daroonapp.com) or [DaroonApp's Admin Application](http://daroonapp.com) after your app's version verified)
+
+if you have any problem, you can see [Tutorial](http://daroonapp.com)
 
 	  <meta-data
             android:name="daroonApp"
