@@ -33,7 +33,7 @@ intialize DaroonApp
 
 	DaroonApp.init(yourActivity.this);
 	
-add **metda-data** with your version's token to your AndroidManifest
+add **meta-data** with your version's token to your AndroidManifest
 (you can get token from your [panel](http://daroonapp.com) or [Admin Application](http://daroonapp.com) after your app's version verify)
 
 	  <meta-data
