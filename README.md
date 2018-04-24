@@ -10,8 +10,11 @@ it's easy to use and works for all Applications
 
 for more information please see the [website](http://daroonapp.com)
 
+also you can see [Tutorial](http://daroonapp.com)
+
 **Download**
 ----
+[![](https://jitpack.io/v/FanavaranFakhteh/DaroonApp.svg)](https://jitpack.io/#FanavaranFakhteh/DaroonApp)
 
 	allprojects { 
 			repositories {
@@ -31,11 +34,20 @@ intialize DaroonApp
 
 	DaroonApp.init(yourActivity.this);
 	
+add **meta-data** to your AndroidManifest with version's token
+(you can get token from [panel](http://daroonapp.com) or [DaroonApp's Admin Application](http://daroonapp.com) after your app's version verified)
+
+if you have any problem, you can see [Tutorial](http://daroonapp.com)
+
+	  <meta-data
+            android:name="daroonApp"
+            android:value="Your_Token"/>
+	
 <h4>payment</h4>
 
 	DaroonApp.pay(ResultActivity.class,"price","description","users-number","users-email");
     
-* write the price to Rial
+* write the price to **Rial**
 
 * you sould fill user's-email or user's-number or both of them,
 if you don't have one of them, send null
