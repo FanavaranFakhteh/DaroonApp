@@ -33,11 +33,18 @@ intialize DaroonApp
 
 	DaroonApp.init(yourActivity.this);
 	
+add **metda-data** with your version's token to your AndroidManifest
+(you can get token from your [panel](http://daroonapp.com) or [Admin Application](http://daroonapp.com) after your app's version verify)
+
+	  <meta-data
+            android:name="daroonApp"
+            android:value="Your_Token"/>
+	
 <h4>payment</h4>
 
 	DaroonApp.pay(ResultActivity.class,"price","description","users-number","users-email");
     
-* write the price to Rial
+* write the price to **Rial**
 
 * you sould fill user's-email or user's-number or both of them,
 if you don't have one of them, send null
