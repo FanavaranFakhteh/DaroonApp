@@ -3,6 +3,8 @@ package com.daroonapp.library;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.ColorFilter;
 import android.graphics.PorterDuff;
 import android.os.Build;
 import android.os.Handler;
@@ -225,18 +227,13 @@ public class PayActivity extends BaseActivity {
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                window.setStatusBarColor(ContextCompat.getColor(PayActivity.activity, R.color.colorPrimary));
-            } else {
-            }
+                window.setStatusBarColor(Color.parseColor("#5c8ecb"));
+            } else { }
     }
     public void setActionBarColor(Integer integer){
-        if(Global.actionBarColor == 0){}
-        else {
             PayActivity.linUrl.setBackgroundColor(PayActivity.activity.getResources().getColor(R.color.colorPrimary));
-        }
     }
     public void setProgressBarColor(){
-            PayActivity.mprogressBar.getIndeterminateDrawable().setColorFilter(PayActivity.activity.getResources()
-                    .getColor(R.color.colorAccent), PorterDuff.Mode.SRC_IN);
+            PayActivity.mprogressBar.getIndeterminateDrawable().setColorFilter(Color.parseColor("#7e64de"), PorterDuff.Mode.SRC_IN);
     }
 }

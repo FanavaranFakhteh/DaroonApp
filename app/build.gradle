@@ -9,8 +9,8 @@ android {
         applicationId "com.daroonapp.example"
         minSdkVersion 15
         targetSdkVersion 27
-        versionCode 106
-        versionName "1.0.6"
+        versionCode 107
+        versionName "1.0.7"
     }
     buildTypes {
         release {
