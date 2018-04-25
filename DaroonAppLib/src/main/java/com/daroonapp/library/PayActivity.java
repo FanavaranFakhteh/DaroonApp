@@ -233,6 +233,7 @@ public class PayActivity extends BaseActivity {
     public void setActionBarColor(Integer integer){
             PayActivity.linUrl.setBackgroundColor(PayActivity.activity.getResources().getColor(R.color.colorPrimary));
     }
+
     public void setProgressBarColor(){
             PayActivity.mprogressBar.getIndeterminateDrawable().setColorFilter(Color.parseColor("#7e64de"), PorterDuff.Mode.SRC_IN);
     }
