@@ -9,8 +9,8 @@ android {
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 27
-        versionCode 105
-        versionName "1.0.5"
+        versionCode 108
+        versionName "1.0.8"
     }
     buildTypes {
         release {
@@ -29,7 +29,8 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile "com.android.support:support-v4:$libVersion"
     compile "com.android.support:appcompat-v7:$libVersion"
-    compile "com.android.support:support-compat:$libVersion"
+    compile "com.android.suppor" +
+            "t:support-compat:$libVersion"
     compile 'com.google.android.gms:play-services-auth:15.0.0'
     compile 'com.mcxiaoke.volley:library-aar:1.0.0'
     compile 'com.loopj.android:android-async-http:1.4.9'

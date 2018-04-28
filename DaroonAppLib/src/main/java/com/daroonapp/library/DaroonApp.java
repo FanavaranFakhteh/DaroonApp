@@ -202,8 +202,7 @@ public class DaroonApp extends Application {
                     versionCode = pInfo.versionCode;
                 } catch (PackageManager.NameNotFoundException e) {
                 }
-            } else {
-            }
+            } else { }
         } catch (PackageManager.NameNotFoundException e) {
             Log.e("init", e + "");
         }
