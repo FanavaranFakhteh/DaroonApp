@@ -24,7 +24,7 @@ also you can see [Tutorial](http://daroonapp.com)
 
 
 	dependencies {
-			compile 'com.github.FanavaranFakhteh:DaroonApp:1.0.7'
+			compile 'com.github.FanavaranFakhteh:DaroonApp:1.0.8'
 		}
     
 **Usage**
