@@ -48,11 +48,11 @@ public class DaroonApp extends Application {
         TextView txtUser = (TextView) paymentBottomSheetDialog.findViewById(R.id.txtuser);
         LinearLayout linPayment = (LinearLayout) paymentBottomSheetDialog.findViewById(R.id.linpayment);
 
-        if(email == null){
+        if (email == null) {
             txtUser.setText(phone);
-        }else if(phone == null){
+        } else if (phone == null) {
             txtUser.setText(email);
-        }else{
+        } else {
             txtUser.setText(email);
         }
 
@@ -108,7 +108,7 @@ public class DaroonApp extends Application {
                     } catch (BridgeException e) {
                     }
                 } catch (Exception e) {
-                    Log.e("getLastTransaction", e + "");
+                    Log.e("err getLastTransaction", e + "");
                 }
             }
         });
@@ -127,54 +127,56 @@ public class DaroonApp extends Application {
             public void run() {
                 try {
                     JSONObject form1 = null;
-                    if (email == null) {
-                        try {
-                            form1 = new JSONObject()
-                                    .put("package_name", mActivity.getApplicationInfo().packageName)
-                                    .put("version_code", versionCode)
-                                    .put("mobile", number)
-                                    .put("token", token);
-                        } catch (Exception e) {
-                        }
-                    } else if (number == null) {
-                        try {
-                            form1 = new JSONObject()
-                                    .put("package_name", mActivity.getApplicationInfo().packageName)
-                                    .put("version_code", versionCode)
-                                    .put("email", email)
-                                    .put("token", token);
-                        } catch (Exception e) {
-                        }
-                    } else {
-                        try {
-                            form1 = new JSONObject()
-                                    .put("package_name", mActivity.getApplicationInfo().packageName)
-                                    .put("version_code", versionCode)
-                                    .put("email", email)
-                                    .put("mobile", number)
-                                    .put("token", token);
-                        } catch (Exception e) {
-                        }
-                    }
-                    try {
-                        Request request = Bridge
-                                .post(Urls.allTransactions)
-                                .header("Accept", "application/json")
-                                .header("Content-Type", "application/json")
-                                .body(form1)
-                                .request();
-
-                        Response response = request.response();
-                        if (response.isSuccess()) {
-                            allJsons = response.asJsonArray();
+                    if (email != null || number != null) {
+                        if (email == null) {
+                            try {
+                                form1 = new JSONObject()
+                                        .put("package_name", mActivity.getApplicationInfo().packageName)
+                                        .put("version_code", versionCode)
+                                        .put("mobile", number)
+                                        .put("token", token);
+                            } catch (Exception e) {
+                            }
+                        } else if (number == null) {
+                            try {
+                                form1 = new JSONObject()
+                                        .put("package_name", mActivity.getApplicationInfo().packageName)
+                                        .put("version_code", versionCode)
+                                        .put("email", email)
+                                        .put("token", token);
+                            } catch (Exception e) {
+                            }
                         } else {
-                            allJsons = null;
+                            try {
+                                form1 = new JSONObject()
+                                        .put("package_name", mActivity.getApplicationInfo().packageName)
+                                        .put("version_code", versionCode)
+                                        .put("email", email)
+                                        .put("mobile", number)
+                                        .put("token", token);
+                            } catch (Exception e) {
+                            }
                         }
+                        try {
+                            Request request = Bridge
+                                    .post(Urls.allTransactions)
+                                    .header("Accept", "application/json")
+                                    .header("Content-Type", "application/json")
+                                    .body(form1)
+                                    .request();
 
-                    } catch (BridgeException e) {
+                            Response response = request.response();
+                            if (response.isSuccess()) {
+                                allJsons = response.asJsonArray();
+                            } else {
+                                allJsons = null;
+                            }
+
+                        } catch (BridgeException e) {
+                        }
                     }
                 } catch (Exception e) {
-                    Log.e("getAllTransactions", e + "");
+                    Log.e("err all transactions", e + "");
                 }
             }
         });
@@ -202,7 +204,8 @@ public class DaroonApp extends Application {
                     versionCode = pInfo.versionCode;
                 } catch (PackageManager.NameNotFoundException e) {
                 }
-            } else { }
+            } else {
+            }
         } catch (PackageManager.NameNotFoundException e) {
             Log.e("init", e + "");
         }

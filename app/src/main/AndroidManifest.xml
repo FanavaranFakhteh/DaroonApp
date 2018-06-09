@@ -19,7 +19,7 @@
 
         <meta-data
             android:name="daroonApp"
-            android:value="Your_Token"/>
+            android:value="your app's version token"/>
         <activity android:name=".ResultActivity"></activity>
     </application>
 

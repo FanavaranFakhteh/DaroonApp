@@ -8,6 +8,7 @@ import android.graphics.PorterDuff;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -129,8 +130,9 @@ public class PayActivity extends BaseActivity {
                 mWebview.setWebViewClient(new WebViewClient() {
                     @Override
                     public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                        Log.v("urlsssssss",url+"");
                         txtUrl.setText(url);
-                        if (url.contains("https://daroonapp.com/user/paid/")) {
+                        if (url.contains("https://my.daroonapp.com/user/paid/")) {
                             endTransaction();
                         }
                     }
@@ -229,7 +231,6 @@ public class PayActivity extends BaseActivity {
     public void setActionBarColor(Integer integer){
             PayActivity.linUrl.setBackgroundColor(PayActivity.activity.getResources().getColor(R.color.colorPrimary));
     }
-
     public void setProgressBarColor(){
             PayActivity.mprogressBar.getIndeterminateDrawable().setColorFilter(Color.parseColor("#7e64de"), PorterDuff.Mode.SRC_IN);
     }
