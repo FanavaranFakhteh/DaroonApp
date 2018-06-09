@@ -24,7 +24,7 @@ also you can see [Tutorial](http://daroonapp.com)
 
 
 	dependencies {
-			compile 'com.github.FanavaranFakhteh:DaroonApp:1.0.9'
+			compile 'com.github.FanavaranFakhteh:DaroonApp:1.1.0'
 		}
     
 **Usage**
@@ -45,7 +45,7 @@ if you have any problem, you can see [Tutorial](http://daroonapp.com)
 	
 <h4>payment</h4>
 
-	DaroonApp.pay(ResultActivity.class,"price","description","users-number","users-email");
+	DaroonApp.pay(ResultActivity.class,"price","description","user's number","user's email");
     
 * write the price to **Rial**
 
@@ -62,7 +62,7 @@ if you don't have one of them, send null
 
 <h4>get All Transactions</h4>
     
-	DaroonApp.getAllTransactions("users number" , "user's email");
+	DaroonApp.getAllTransactions("user's number" , "user's email");
            
 * you sould fill user's-email or user's-number or both of them,
 if you don't have one of them, send null
