@@ -12,6 +12,8 @@ for more information please see the [website](http://daroonapp.com)
 
 also you can see [Tutorial](http://daroonapp.com)
 
+at the end your can download Admin application [here](https://my.daroonapp.com/application/latest/download)
+
 **Download**
 ----
 [![](https://jitpack.io/v/FanavaranFakhteh/DaroonApp.svg)](https://jitpack.io/#FanavaranFakhteh/DaroonApp)
