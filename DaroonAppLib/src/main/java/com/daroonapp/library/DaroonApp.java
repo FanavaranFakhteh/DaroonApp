@@ -127,22 +127,13 @@ public class DaroonApp extends Application {
             public void run() {
                 try {
                     JSONObject form1 = null;
-                    if (email != null || number != null) {
+                    if (number != null) {
                         if (email == null) {
                             try {
                                 form1 = new JSONObject()
                                         .put("package_name", mActivity.getApplicationInfo().packageName)
                                         .put("version_code", versionCode)
                                         .put("mobile", number)
-                                        .put("token", token);
-                            } catch (Exception e) {
-                            }
-                        } else if (number == null) {
-                            try {
-                                form1 = new JSONObject()
-                                        .put("package_name", mActivity.getApplicationInfo().packageName)
-                                        .put("version_code", versionCode)
-                                        .put("email", email)
                                         .put("token", token);
                             } catch (Exception e) {
                             }
@@ -174,6 +165,8 @@ public class DaroonApp extends Application {
 
                         } catch (BridgeException e) {
                         }
+                    }else{
+                        Log.e("error ", "phone number is null");
                     }
                 } catch (Exception e) {
                     Log.e("err all transactions", e + "");

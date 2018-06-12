@@ -3,9 +3,7 @@ package com.daroonapp.example;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-
 import com.daroonapp.library.DaroonApp;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 

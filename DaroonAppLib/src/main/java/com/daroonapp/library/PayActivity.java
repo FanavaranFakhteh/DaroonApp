@@ -62,58 +62,57 @@ public class PayActivity extends BaseActivity {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                try {
-                    JSONObject form1 = null;
+                if (phone != null) {
                     try {
-                        if(email == null) {
-                            form1 = new JSONObject()
-                                    .put("package_name", packageName)
-                                    .put("version_code", String.valueOf(versionCode))
-                                    .put("extra_data", description)
-                                    .put("amount", price)
-                                    .put("mobile", phone)
-                                    .put("type", "1")
-                                    .put("token", token);
-                        }else if (phone == null){
-                            form1 = new JSONObject()
-                                    .put("package_name", packageName)
-                                    .put("version_code", String.valueOf(versionCode))
-                                    .put("extra_data", description)
-                                    .put("amount", price)
-                                    .put("email", email)
-                                    .put("type", "1")
-                                    .put("token", token);
-                        }else{
-                            form1 = new JSONObject()
-                                    .put("package_name", packageName)
-                                    .put("version_code", String.valueOf(versionCode))
-                                    .put("extra_data", description)
-                                    .put("amount", price)
-                                    .put("mobile", phone)
-                                    .put("email", email)
-                                    .put("type", "1")
-                                    .put("token", token);
+                        JSONObject form1 = null;
+                        try {
+                            if (email == null) {
+                                form1 = new JSONObject()
+                                        .put("package_name", packageName)
+                                        .put("version_code", String.valueOf(versionCode))
+                                        .put("extra_data", description)
+                                        .put("amount", price)
+                                        .put("mobile", phone)
+                                        .put("type", "1")
+                                        .put("token", token);
+                            } else {
+                                form1 = new JSONObject()
+                                        .put("package_name", packageName)
+                                        .put("version_code", String.valueOf(versionCode))
+                                        .put("extra_data", description)
+                                        .put("amount", price)
+                                        .put("mobile", phone)
+                                        .put("email", email)
+                                        .put("type", "1")
+                                        .put("token", token);
+                            }
+
+                        } catch (Exception e) { }
+                        try {
+                            Request request = Bridge
+                                    .post(Urls.makePayment)
+                                    .header("Accept", "application/json")
+                                    .header("Content-type", "application/json")
+                                    .body(form1)
+                                    .request();
+                            response = request.response();
+                            if (response.isSuccess()) {
+                                JSONObject object = null;
+                                object = new JSONObject(String.valueOf(response.asJsonObject()));
+                                try {
+                                    id = String.valueOf(object.getInt("payment_id"));
+                                    url = Urls.zarinPayment + id;
+                                    setUi();
+                                } catch (JSONException e1) {
+                                }
+                            }
+                        } catch (BridgeException e) {
                         }
-                    } catch (Exception e) {}
-                    try {
-                        Request request = Bridge
-                                .post(Urls.makePayment)
-                                .header("Accept", "application/json")
-                                .header("Content-type", "application/json")
-                                .body(form1)
-                                .request();
-                        response = request.response();
-                        if (response.isSuccess()) {
-                            JSONObject object = null;
-                            object = new JSONObject(String.valueOf(response.asJsonObject()));
-                            try {
-                                id = String.valueOf(object.getInt("payment_id"));
-                                url = Urls.zarinPayment + id;
-                                setUi();
-                            } catch (JSONException e1) {}
-                        }
-                    } catch (BridgeException e) {}
-                } catch (Exception e) {}
+                    } catch (Exception e) {
+                    }
+                }else{
+                    Log.e("error ","phone number is null");
+            }
             }
         });
         thread.start();
@@ -130,7 +129,6 @@ public class PayActivity extends BaseActivity {
                 mWebview.setWebViewClient(new WebViewClient() {
                     @Override
                     public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                        Log.v("urlsssssss",url+"");
                         txtUrl.setText(url);
                         if (url.contains("https://my.daroonapp.com/user/paid/")) {
                             endTransaction();

@@ -1,20 +1,11 @@
 package com.daroonapp.example;
 
 import android.app.Activity;
-import android.app.Dialog;
-import android.content.Intent;
-import android.os.Build;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.LinearLayout;
-
 import com.daroonapp.library.DaroonApp;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -41,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btngo: // payment
-                DaroonApp.pay(ResultActivity.class, "price", "Description", "your user's phone number", "your user's email");
+                DaroonApp.pay(ResultActivity.class, "price", "Description", "your user's phone number", "your user's email(optional)");
                 break;
         }
     }
