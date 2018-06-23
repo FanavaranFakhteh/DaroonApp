@@ -66,7 +66,7 @@ if you don't have user's email, send null
     
 	DaroonApp.getAllTransactions("user's number(necessary)" , "user's email(optional)");
            
-* you sould fill user's number but user's email is optional,
+* you should fill user's number but user's email is optional,
 if you don't have user's email, send null
     
 <h5>example :</h5>
