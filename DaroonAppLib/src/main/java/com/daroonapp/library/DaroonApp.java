@@ -73,7 +73,6 @@ public class DaroonApp extends Application {
         linPayment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(mActivity, PayActivity.class);
                 intent.putExtra("activity", mclass.toString());
                 intent.putExtra("price", price);
@@ -84,9 +83,7 @@ public class DaroonApp extends Application {
                 intent.putExtra("packageName", mActivity.getApplicationInfo().packageName.toString());
                 intent.putExtra("versionCode", String.valueOf(versionCode));
 
-
                 mActivity.startActivity(intent);
-
             }
         });
 
