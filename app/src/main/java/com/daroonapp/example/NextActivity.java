@@ -7,7 +7,7 @@ import com.daroonapp.library.DaroonApp;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class ResultActivity extends AppCompatActivity {
+public class NextActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,7 +17,7 @@ public class ResultActivity extends AppCompatActivity {
         JSONObject lastTransaction = DaroonApp.getLastTransaction();
 
         // get all of user's transaction
-        JSONArray allTransactions = DaroonApp.getAllTransactions("your user's phone number","your user's email");
+        JSONArray allTransactions = DaroonApp.getAllTransactions("09372503980",null);
 
         Log.v("last transaction : ",lastTransaction+"");
         Log.v("all transaction : ",allTransactions+"");

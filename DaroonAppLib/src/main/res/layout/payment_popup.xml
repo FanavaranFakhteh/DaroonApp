@@ -18,10 +18,24 @@
         android:layout_weight="2"
         android:orientation="horizontal">
 
+        <com.daroonapp.library.Fonts.RegularButton
+            android:id="@+id/btnpay"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="3.5"
+            android:background="@drawable/button_green_radius"
+            android:text="مشاهده تراکنش ها"
+            android:textColor="#ffffff"
+            android:textSize="12sp" />
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="8"
+            android:layout_weight="6"
             android:gravity="right"
             android:orientation="vertical">
 
@@ -45,7 +59,7 @@
                     app:srcCompat="@drawable/daroonappp_text_blue" />
             </LinearLayout>
 
-            <com.daroonapp.library.RegularTextView
+            <com.daroonapp.library.Fonts.RegularTextView
                 android:id="@+id/txtuser"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -71,7 +85,7 @@
         android:layout_weight="1.5"
         android:orientation="horizontal">
 
-        <com.daroonapp.library.RegularTextView
+        <com.daroonapp.library.Fonts.RegularTextView
             android:id="@+id/textView4"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -81,7 +95,7 @@
             android:text="@string/rial"
             android:textColor="#5c8ecb" />
 
-        <com.daroonapp.library.RegularTextView
+        <com.daroonapp.library.Fonts.RegularTextView
             android:id="@+id/txtprice"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -96,7 +110,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
-        <com.daroonapp.library.RegularTextView
+        <com.daroonapp.library.Fonts.RegularTextView
             android:id="@+id/textView3"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -158,7 +172,7 @@
                         android:layout_weight="7"
                         android:orientation="vertical">
 
-                        <com.daroonapp.library.RegularTextView
+                        <com.daroonapp.library.Fonts.RegularTextView
                             android:id="@+id/textView7"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -168,7 +182,7 @@
                             android:text="@string/internet_payment"
                             android:textColor="#5c8ecb" />
 
-                        <com.daroonapp.library.RegularTextView
+                        <com.daroonapp.library.Fonts.RegularTextView
                             android:id="@+id/textView6"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
