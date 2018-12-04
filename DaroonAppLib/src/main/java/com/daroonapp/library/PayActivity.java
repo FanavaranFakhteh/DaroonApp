@@ -40,8 +40,10 @@ public class PayActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
-        getSupportActionBar().hide();
+        try {
+            getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
+            getSupportActionBar().hide();
+        }catch (Exception e){}
         setContentView(R.layout.activity_pay);
 
         viewBinding();
