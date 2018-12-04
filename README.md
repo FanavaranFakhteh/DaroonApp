@@ -10,7 +10,7 @@ it's easy to use and works for all Applications
 
 for more information please see the [website](http://daroonapp.com)
 
-also you can see [Tutorial](http://daroonapp.com)
+also you can see [Tutorial](http://telegram.me/daroonapp)
 
 at the end your can download Admin application [here](https://my.daroonapp.com/application/latest/download)
 
@@ -39,7 +39,7 @@ intialize DaroonApp
 add **meta-data** to your AndroidManifest with version's token
 (you can get token from [panel](http://daroonapp.com) or [DaroonApp's Admin Application](http://daroonapp.com) after your app's version verified)
 
-if you have any problem, you can see [Tutorial](http://daroonapp.com)
+if you have any problem, you can see [Tutorial](http://telegram.me/daroonapp)
 
 	  <meta-data
             android:name="daroonApp"
@@ -47,27 +47,27 @@ if you have any problem, you can see [Tutorial](http://daroonapp.com)
 	
 <h4>payment</h4>
 
-	DaroonApp.pay(ResultActivity.class,"price","description","user's number","user's email");
+	DaroonApp.pay(ResultActivity.class,"price(necessary)","description(optional)","user's number(necessary)","user's email(optional)");
     
 * write the price to **Rial**
 
-* you sould fill user's-email or user's-number or both of them,
-if you don't have one of them, send null
+* you sould fill user's number but user's email is optional,
+if you don't have user's email, send null
 
 <h5>example :</h5> 
     
-	DaroonApp.pay(ResultActivity.class,"20000","Gold Access",null,"info.DaroonApp@gmail.com");
+	DaroonApp.pay(ResultActivity.class,"20000","Gold Access","0912*******",null);
         
-<h4>get Last Transaction</h4>
+<h4>get Last user's Transaction</h4>
     
 	DaroonApp.getLastTransaction();
 
-<h4>get All Transactions</h4>
+<h4>get All user's Transactions</h4>
     
-	DaroonApp.getAllTransactions("user's number" , "user's email");
+	DaroonApp.getAllTransactions("user's number(necessary)" , "user's email(optional)");
            
-* you sould fill user's-email or user's-number or both of them,
-if you don't have one of them, send null
+* you should fill user's number but user's email is optional,
+if you don't have user's email, send null
     
 <h5>example :</h5>
     

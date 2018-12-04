@@ -31,7 +31,7 @@
                 android:layout_weight="1"
                 android:src="@drawable/lock" />
 
-            <com.daroonapp.library.RegularTextView
+            <com.daroonapp.library.Fonts.RegularTextView
                 android:id="@+id/txturl"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"

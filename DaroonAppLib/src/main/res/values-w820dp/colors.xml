@@ -5,4 +5,6 @@
     <color name="colorAccent">#5263cb</color>
     <color name="actionBarColor">#164899</color>
     <color name="daroonapp_color">#5c8ecb</color>
+    <color name="listviewitems">#7bc1ea</color>
+    <color name="white">#ffffff</color>
 </resources>

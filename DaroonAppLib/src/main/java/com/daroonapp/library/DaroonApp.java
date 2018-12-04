@@ -3,7 +3,6 @@ package com.daroonapp.library;
 import android.app.Activity;
 import android.app.Application;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
@@ -20,6 +19,8 @@ import com.afollestad.bridge.Bridge;
 import com.afollestad.bridge.BridgeException;
 import com.afollestad.bridge.Request;
 import com.afollestad.bridge.Response;
+import com.daroonapp.library.Transactions.TransactionsActivity;
+import com.daroonapp.library.Pay.PayActivity;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -36,7 +37,7 @@ public class DaroonApp extends Application {
 
     public static void pay(final Class mclass, final String price, final String description, final String phone, final String email) {
 
-        Dialog paymentBottomSheetDialog;
+        final Dialog paymentBottomSheetDialog;
         paymentBottomSheetDialog = new Dialog(mActivity, com.daroonapp.library.R.style.MaterialDialogSheet);
         paymentBottomSheetDialog.setContentView(com.daroonapp.library.R.layout.payment_popup); // your custom view.
         paymentBottomSheetDialog.setCancelable(true);
@@ -44,6 +45,7 @@ public class DaroonApp extends Application {
         paymentBottomSheetDialog.getWindow().setGravity(Gravity.BOTTOM);
         paymentBottomSheetDialog.show();
 
+        Button btnPay = (Button) paymentBottomSheetDialog.findViewById(R.id.btnpay);
         TextView txtPrice = (TextView) paymentBottomSheetDialog.findViewById(R.id.txtprice);
         TextView txtUser = (TextView) paymentBottomSheetDialog.findViewById(R.id.txtuser);
         LinearLayout linPayment = (LinearLayout) paymentBottomSheetDialog.findViewById(R.id.linpayment);
@@ -57,10 +59,20 @@ public class DaroonApp extends Application {
         }
 
         txtPrice.setText(price);
+
+        btnPay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                paymentBottomSheetDialog.dismiss();
+                Intent intent = new Intent(mActivity,TransactionsActivity.class);
+                mActivity.startActivity(intent);
+            }
+        });
+
+
         linPayment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(mActivity, PayActivity.class);
                 intent.putExtra("activity", mclass.toString());
                 intent.putExtra("price", price);
@@ -70,9 +82,8 @@ public class DaroonApp extends Application {
                 intent.putExtra("email", email);
                 intent.putExtra("packageName", mActivity.getApplicationInfo().packageName.toString());
                 intent.putExtra("versionCode", String.valueOf(versionCode));
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                mActivity.startActivity(intent);
 
+                mActivity.startActivity(intent);
             }
         });
 
