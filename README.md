@@ -26,7 +26,7 @@ at the end your can download Admin application [here](https://my.daroonapp.com/a
 
 
 	dependencies {
-			 implementation 'com.github.FanavaranFakhteh:DaroonApp:1.1.3'
+			 implementation 'com.github.FanavaranFakhteh:DaroonApp:1.1.7'
 		}
     
 **Usage**
