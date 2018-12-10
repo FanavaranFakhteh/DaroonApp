@@ -129,6 +129,13 @@ public class PayActivity extends BaseActivity implements PayView {
         PayActivity.mprogressBar.getIndeterminateDrawable().setColorFilter(Color.parseColor("#7e64de"), PorterDuff.Mode.SRC_IN);
     }
 
+    @Override
+    public void showProgressBar() {
+        mprogressBar.setVisibility(View.VISIBLE);
+        mWebview.setVisibility(View.GONE);
+    }
+
+
 }
 
 

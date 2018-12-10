@@ -8,4 +8,5 @@ public interface PayView {
     public void setStatusBarColor();
     public void setActionBarColor(Integer integer);
     public void setProgressBarColor();
+    public void showProgressBar();
 }
