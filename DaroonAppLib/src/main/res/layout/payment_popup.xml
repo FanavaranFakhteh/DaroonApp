@@ -30,7 +30,8 @@
             android:background="@drawable/button_green_radius"
             android:text="مشاهده تراکنش ها"
             android:textColor="#ffffff"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            android:visibility="invisible" />
 
         <LinearLayout
             android:layout_width="0dp"
