@@ -27,7 +27,7 @@
             android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
             android:layout_weight="3.5"
-            android:background="@drawable/button_green_radius"
+            android:background="@drawable/daroonapp_button_green_radius"
             android:text="مشاهده تراکنش ها"
             android:textColor="#ffffff"
             android:textSize="12sp"
@@ -76,7 +76,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            app:srcCompat="@drawable/icon" />
+            app:srcCompat="@drawable/daroonapp_icon" />
 
     </LinearLayout>
 
@@ -145,7 +145,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="25dp"
-                android:background="@drawable/white_gradient"
+                android:background="@drawable/darooapp_white_gradient"
                 android:orientation="horizontal"></LinearLayout>
 
             <LinearLayout
@@ -165,7 +165,7 @@
                         android:layout_width="0dp"
                         android:layout_height="25dp"
                         android:layout_weight="1"
-                        android:src="@drawable/back" />
+                        android:src="@drawable/daroonapp_back" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -199,7 +199,7 @@
                         android:layout_width="0dp"
                         android:layout_height="35dp"
                         android:layout_weight="2"
-                        android:src="@drawable/shetab_logo" />
+                        android:src="@drawable/daroonapp_shetab_logo" />
                 </LinearLayout>
 
             </LinearLayout>

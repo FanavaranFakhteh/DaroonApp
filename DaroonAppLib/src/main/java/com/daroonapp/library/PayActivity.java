@@ -167,6 +167,7 @@ public class PayActivity extends BaseActivity {
             @Override
             public void run() {
                 try {
+                    showProgressBar();
                     JSONObject form1 = null;
                     try {
                         form1 = new JSONObject()
@@ -233,5 +234,15 @@ public class PayActivity extends BaseActivity {
     }
     public void setProgressBarColor(){
             PayActivity.mprogressBar.getIndeterminateDrawable().setColorFilter(Color.parseColor("#7e64de"), PorterDuff.Mode.SRC_IN);
+    }
+
+    public void showProgressBar(){
+       mprogressBar.setVisibility(View.VISIBLE);
+       mWebview.setVisibility(View.GONE);
+    }
+
+    public void hideProgressBar(){
+        mprogressBar.setVisibility(View.GONE);
+        mWebview.setVisibility(View.VISIBLE);
     }
 }

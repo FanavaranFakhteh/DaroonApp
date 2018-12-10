@@ -8,8 +8,8 @@ apply plugin: 'com.android.application'
         defaultConfig {
             minSdkVersion 15
             targetSdkVersion 27
-            versionCode 114
-            versionName "1.1.4"
+            versionCode 115
+            versionName "1.1.5"
         }
         buildTypes {
             release {

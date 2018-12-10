@@ -48,11 +48,11 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
 
         holder.status.setText(mainlist.get(position).getStatus());
         if(mainlist.get(position).getStatus().equalsIgnoreCase("ناموفق")){
-            holder.imgstatus.setImageResource(R.drawable.status_red);
+            holder.imgstatus.setImageResource(R.drawable.daroonapp_status_red);
         } else if(mainlist.get(position).getStatus().equalsIgnoreCase("موفق")){
-            holder.imgstatus.setImageResource(R.drawable.status_green);
+            holder.imgstatus.setImageResource(R.drawable.daroonapp_status_green);
         }else if(mainlist.get(position).getStatus().equalsIgnoreCase("در حال پرداخت")){
-            holder.imgstatus.setImageResource(R.drawable.status_orange);
+            holder.imgstatus.setImageResource(R.drawable.daroonapp_status_orange);
         }
         holder.date.setText(mainlist.get(position).getDate());
         holder.transactionId.setText(mainlist.get(position).getId());
