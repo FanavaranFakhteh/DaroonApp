@@ -93,7 +93,7 @@
             android:layout_marginLeft="4dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/rial"
+            android:text="@string/daroonapp_rial"
             android:textColor="#5c8ecb" />
 
         <com.daroonapp.library.Fonts.RegularTextView
@@ -120,7 +120,7 @@
             android:layout_marginTop="4dp"
             android:layout_weight="4"
             android:gravity="right|center_vertical"
-            android:text="@string/choose_payment" />
+            android:text="@string/daroonapp_choose_payment" />
     </LinearLayout>
 
     <android.support.v4.widget.Space
@@ -180,7 +180,7 @@
                             android:layout_marginRight="16dp"
                             android:layout_weight="7"
                             android:gravity="bottom|right"
-                            android:text="@string/internet_payment"
+                            android:text="@string/daroonapp_internet_payment"
                             android:textColor="#5c8ecb" />
 
                         <com.daroonapp.library.Fonts.RegularTextView
@@ -190,7 +190,7 @@
                             android:layout_marginRight="16dp"
                             android:layout_weight="7"
                             android:gravity="right"
-                            android:text="@string/all_cards"
+                            android:text="@string/daroonapp_all_cards"
                             android:textSize="10sp" />
                     </LinearLayout>
 

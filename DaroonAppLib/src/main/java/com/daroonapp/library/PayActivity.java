@@ -148,6 +148,7 @@ public class PayActivity extends BaseActivity {
     @Override
     public void onBackPressed() {
         if (doubleBackToExitPressedOnce) {
+            showProgressBar();
             failTransaction();
             return;
         }
@@ -167,7 +168,6 @@ public class PayActivity extends BaseActivity {
             @Override
             public void run() {
                 try {
-                    showProgressBar();
                     JSONObject form1 = null;
                     try {
                         form1 = new JSONObject()
