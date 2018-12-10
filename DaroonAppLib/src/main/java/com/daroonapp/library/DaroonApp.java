@@ -206,9 +206,12 @@ public class DaroonApp extends Application {
                 try {
                     pInfo = mActivity.getPackageManager().getPackageInfo(mActivity.getPackageName(), 0);
                     versionCode = pInfo.versionCode;
+                    Log.v("package_name",pInfo+"");
+                    Log.v("version_code",versionCode+"");
                 } catch (PackageManager.NameNotFoundException e) {
                 }
             } else {
+                Log.e("token","null");
             }
         } catch (PackageManager.NameNotFoundException e) {
             Log.e("init", e + "");
